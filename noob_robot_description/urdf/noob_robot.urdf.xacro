@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="noob_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!--Kinect Offset-->
+    <xacro:property name="kinect_offset_x" value="-0.06" />
+    <xacro:property name="kinect_offset_y" value="0" />
+    <xacro:property name="kinect_offset_z" value="0.055" />
+
+    <xacro:include filename="$(find noob_robot_description)/urdf/noob_robot_chassis.urdf.xacro" />
+    <xacro:include filename="$(find noob_robot_description)/urdf/kinect.xacro" />
+    <!--Declare the xacro in the above file-->
+    <xacro:noob_robot_body/>
+
+    <!--Kinect-->
+    <joint name="kinect_frame_joint" type="fixed">
+        <origin xyz="${kinect_offset_x} ${kinect_offset_y} ${kinect_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+    </joint>
+    <!--Declare the xacro in the above file-->
+    <xacro:kinect_camera prefix="camera"/>
+
+</robot>
