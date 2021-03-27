@@ -1,7 +1,7 @@
 <launch>
 
     <!--Gazebo World Environment Argument-->
-    <arg name="world_name" value="$(find noob_robot_description)/world/room.world"/>
+    <arg name="world_name" value="$(find noob_robot_gazebo)/world/room.world"/>
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
     <arg name="gui" default="true"/>

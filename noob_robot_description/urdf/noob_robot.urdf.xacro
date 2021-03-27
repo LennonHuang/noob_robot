@@ -4,7 +4,7 @@
     <!--Kinect Offset-->
     <xacro:property name="kinect_offset_x" value="-0.06" />
     <xacro:property name="kinect_offset_y" value="0" />
-    <xacro:property name="kinect_offset_z" value="0.055" />
+    <xacro:property name="kinect_offset_z" value="0.555" />
 
     <xacro:include filename="$(find noob_robot_description)/urdf/noob_robot_chassis.urdf.xacro" />
     <xacro:include filename="$(find noob_robot_description)/urdf/kinect.xacro" />
