@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+        <!--Static TF publishe from /odom to /map. Replace with Amcl-->  
+        <node pkg="tf" type="static_transform_publisher" name="static_tf_trans" args="0 0 0 0 0 0 1 map gazebo_odom 50"/>
+
+        <!--map server-->  
+          <arg name="map_file" default="$(find noob_robot_navigation)/maps/gazebo_world_map.yaml"/>
+          <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" >
+             <param name="frame_id" value="gazebo_odom"/>
+           </node>
+        
+        <!--Move Base-->
+	<node pkg="move_base" type="move_base" name="move_base">
+        <rosparam file="$(find mrobot_navigation)/config/fake/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find mrobot_navigation)/config/fake/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find mrobot_navigation)/config/fake/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find mrobot_navigation)/config/fake/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find mrobot_navigation)/config/fake/base_local_planner_params.yaml" command="load" />
+	</node>-->
+ 
+</launch>
