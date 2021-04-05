@@ -1,11 +1,12 @@
+<?xml version="1.0"?>
 <launch>
 
 <arg name="model" default="$(find xacro)/xacro '$(find noob_robot_description)/urdf/noob_robot.urdf.xacro'" />
-<param name="use_gui" value="true"/>
+<param name="use_gui" value="false"/>
 <param name="robot_description" command="$(arg model)" />
 
 <!--joint state publisher-->
-<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+<!--<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />-->
 
 <!--robot state publisher,for TF-->
 <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 
     <!--Gazebo World Environment Argument-->
@@ -19,7 +20,7 @@
     </include>
 
 <arg name="model" default="$(find xacro)/xacro '$(find noob_robot_description)/urdf/noob_robot.urdf.xacro'" />
-<param name="use_gui" value="true"/>
+<param name="use_gui" value="false"/>
 <param name="robot_description" command="$(arg model)" />
 
 <!--joint state publisher-->

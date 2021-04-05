@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find noob_robot_navigation)/launch/gmapping.launch"/>
+
+</launch>

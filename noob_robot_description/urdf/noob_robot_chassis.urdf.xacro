@@ -188,8 +188,8 @@
         </gazebo>
 
         <!-- Wheel Definitions -->
-        <xacro:wheel lr="right"  translateY="1" />
-        <xacro:wheel lr="left"  translateY="-1" />
+        <xacro:wheel lr="right"  translateY="-1" />
+        <xacro:wheel lr="left"  translateY="1" />
 
         <!-- Casters Definitions -->
         <xacro:caster fb="front"  translateX="-1" />
@@ -215,8 +215,8 @@
                 <wheelTorque>30</wheelTorque>
                 <wheelAcceleration>1.8</wheelAcceleration>
                 <commandTopic>cmd_vel</commandTopic>
-                <odometryFrame>gazebo_odom</odometryFrame> 
-                <odometryTopic>gazebo_odom</odometryTopic> 
+                <odometryFrame>odom</odometryFrame> 
+                <odometryTopic>odom</odometryTopic> 
                 <robotBaseFrame>base_footprint</robotBaseFrame>
             </plugin>
         </gazebo> 
