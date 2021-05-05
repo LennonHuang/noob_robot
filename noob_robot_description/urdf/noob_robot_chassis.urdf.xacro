@@ -74,21 +74,21 @@
     </xacro:macro>
 
     <!-- Macro for wheel joint -->
-    <xacro:macro name="wheel" params="lr translateY">
+    <xacro:macro name="wheel" params="lr translateY">-->
         <!-- lr: left, right -->
         <link name="wheel_${lr}_link">
             <visual>
-                <origin xyz="0 0 0" rpy="${M_PI/2} 0  0 " /> 
+                <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> 
                 <geometry>
                     <cylinder length="${wheel_height}" radius="${wheel_radius}" />
                 </geometry>
-                <material name="Blue" />
+                <material name="Red" />
             </visual>
             <collision>
-                <origin xyz="0 0 0" rpy="${M_PI/2} 0 0 " />
                 <geometry>
                     <cylinder length="${wheel_height}" radius="${wheel_radius}" />
                 </geometry>
+                <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
             </collision>
             <xacro:cylinder_inertial_matrix  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
         </link>
@@ -98,10 +98,10 @@
         </gazebo>
 
         <joint name="base_to_wheel_${lr}_joint" type="continuous">
-            <parent link="base_link"/>
+            <parent link="base_footprint"/>
             <child link="wheel_${lr}_link"/>
-            <origin xyz="${motor_x} ${translateY * base_link_radius} 0" rpy="0 0 0" /> 
-            <axis xyz="0 1 0" rpy="0  0" />
+            <origin xyz="${motor_x} ${translateY * base_link_radius} ${wheel_radius}" rpy="0 0 0" /> 
+            <axis xyz="0 1 0" rpy="0 0 0" />
         </joint>
 
         <!-- Transmission is important to link the joints and the controller -->
@@ -173,7 +173,7 @@
                 <geometry>
                     <cylinder length="${base_link_length}" radius="${base_link_radius}"/>
                 </geometry>
-                <material name="yellow" />
+                <material name="Blue" />
             </visual>
 
             <collision>
@@ -187,13 +187,14 @@
             <material>Gazebo/Blue</material>
         </gazebo>
 
+
+        <!-- Casters Definitions-->
+        <xacro:caster fb="front"  translateX="-1" />
+        <xacro:caster fb="back"  translateX="1" />
+        
         <!-- Wheel Definitions -->
         <xacro:wheel lr="right"  translateY="-1" />
         <xacro:wheel lr="left"  translateY="1" />
-
-        <!-- Casters Definitions -->
-        <xacro:caster fb="front"  translateX="-1" />
-        <xacro:caster fb="back"  translateX="1" />
 
 
         <!-- controller -->
@@ -219,7 +220,7 @@
                 <odometryTopic>odom</odometryTopic> 
                 <robotBaseFrame>base_footprint</robotBaseFrame>
             </plugin>
-        </gazebo> 
+        </gazebo>
 
     </xacro:macro>
 </robot>

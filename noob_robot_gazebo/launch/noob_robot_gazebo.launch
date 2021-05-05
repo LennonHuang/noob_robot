@@ -33,7 +33,7 @@
 <node name="rviz" pkg="rviz" type="rviz" args="-d $(find noob_robot_description)/config/noob_chassis_urdf.rviz" required="true" />
 
 <!--Load Robot Urdf-->
-<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-          args="-urdf -model noob_robot -param robot_description"/> 
+<!--<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model noob_robot -param robot_description"/> -->
 
 </launch>

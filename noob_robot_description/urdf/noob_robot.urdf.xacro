@@ -19,7 +19,7 @@
     <!--Laser-->
 	<joint name="rplidar_joint" type="fixed">
 		<origin xyz="${rplidar_offset_x} ${rplidar_offset_y} ${rplidar_offset_z}" rpy="0 0 0" />
-		<parent link="base_link"/>
+		<parent link="base_footprint"/>
 		<child link="laser_link"/>
 	</joint>
     <!--Kinect-->
